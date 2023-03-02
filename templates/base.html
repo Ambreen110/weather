@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Forecast</title>
+</head>
+<body>
+    <h1>Weather Forecast</h1>
+    <form action="{{ url_for('forecast') }}" method="get">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Search</button>
+    </form>
+    {% if cloud_pct %}
+        <h2>{{ city }}</h2>
+        <p>Cloud cover: {{ cloud_pct }}%</p>
+        <p>Temperature: {{ temp }}°C</p>
+        <p>Feels like: {{ feels_like }}°C</p>
+        <p>Humidity: {{ humidity }}%</p>
+        <p>Min temperature: {{ min_temp }}°C</p>
+        <p>Max temperature: {{ max_temp }}°C</p>
+        <p>Wind speed: {{ wind_speed }} km/h</p>
+        <p>Wind direction: {{ wind_degrees }}°</p>
+        <p>Sunrise: {{ sunrise }}</p>
+        <p>Sunset: {{ sunset }}</p>
+    {% endif %}
+</body>
+</html>
